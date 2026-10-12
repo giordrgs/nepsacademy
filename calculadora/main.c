@@ -21,7 +21,7 @@ int main(){
             dig = scanf("%d", &ope);
         }
         if(dig == 1){
-            if (ope >= 1 && ope <= 5){
+            if (ope == 1 || ope == 2 || ope == 3 || ope == 4 || ope == 5){
                 switch (ope)
                 {
                 case 1:
@@ -117,8 +117,9 @@ int main(){
             else{
                 do{
                     printf("Erro: Opção Inválida\n");
+                    while (getchar() != '\n');
                     printf("Digite uma opção válida novamente: ");
-                    scanf("%d", &ope);
+                    dig = scanf("%d", &ope);
                 }while (ope > 5 || ope < 1);
             }
         }
