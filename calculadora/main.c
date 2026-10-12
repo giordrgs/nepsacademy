@@ -5,8 +5,8 @@
 
 int main(){
     setlocale(LC_ALL, "pt_BR.UTF-8");
-    int ope = 0, dig;
-    float num1, num2;
+    int ope = 0, dig = 0;
+    float num1 = 0, num2 = 0;
     char sair;
     do{
         if (ope < 1 || ope > 5){
@@ -22,9 +22,7 @@ int main(){
         }
         if(dig == 1){
             if (ope == 1 || ope == 2 || ope == 3 || ope == 4 || ope == 5){
-                switch (ope)
-                {
-                case 1:
+                if (ope == 1.0){
                     printf("Digite o primeiro número: ");
                     scanf("%f", &num1);
                     printf("Digite o segundo número: ");
@@ -44,8 +42,8 @@ int main(){
                         system("clear"); 
                     #endif
 
-                    break;
-                case 2:
+                }
+                else if (ope == 2){
                     printf("Digite o primeiro número: ");
                     scanf("%f", &num1);
                     printf("Digite o segundo número: ");
@@ -64,8 +62,9 @@ int main(){
                     #else
                         system("clear"); 
                     #endif
-                    break;
-                case 3:
+                }
+
+                else if (ope == 3){
                     printf("Digite o primeiro número: ");
                     scanf("%f", &num1);
                     printf("Digite o segundo número: ");
@@ -84,8 +83,9 @@ int main(){
                     #else
                         system("clear"); 
                     #endif
-                    break;
-                case 4:
+                }
+
+                else if (ope == 4){
                     printf("Digite o primeiro número: ");
                     scanf("%f", &num1);
                     printf("Digite o segundo número: ");
@@ -109,10 +109,21 @@ int main(){
                     #else
                         system("clear"); 
                     #endif
-                    break;
-                case 5:
-                    break;
                 }
+
+                else if (ope == 5){
+
+                }
+
+                else{
+                    do{
+                    printf("Erro: Opção Inválida\n");
+                    while (getchar() != '\n');
+                    printf("Digite uma opção válida novamente: ");
+                    dig = scanf("%d", &ope);
+                }while (ope > 5 || ope < 1);
+                }
+                
             }
             else{
                 do{
