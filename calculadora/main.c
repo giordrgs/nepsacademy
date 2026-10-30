@@ -151,35 +151,31 @@ int main(){
                 printf("Erro: Opção Inválida\n");
                 while (getchar() != '\n');
                 printf("Digite uma opção válida novamente: ");
-                scanf("%d%c", &opc, &term);
+                res = scanf("%d%c", &opc, &term);
             }while (opc > 5 || opc < 1);
         }
         else{
             switch (opc){
                 case 1:
                     opc = 0;
-                    limparBuffer();
                     if (soma() == 1){
                         opc = 5;
                     }
                 break;
                 case 2:
                     opc = 0;
-                    limparBuffer();
                     if (subtracao() == 1){
                         opc = 5;
                     }
                 break;
                 case 3:
                     opc = 0;
-                    limparBuffer();
                     if (mult() == 1){
                         opc = 5;
                     }
                 break;
                 case 4:
                     opc = 0;
-                    limparBuffer();
                     if (divisao() == 1){
                         opc = 5;
                     }
@@ -191,7 +187,7 @@ int main(){
                         printf("Erro: Opção Inválida\n");
                         while (getchar() != '\n');
                         printf("Digite uma opção válida novamente: ");
-                        scanf("%d", &opc);
+                        res = scanf("%d%c", &opc, &term);
                     }while (opc > 5 || opc < 1);
                 break;
             }
