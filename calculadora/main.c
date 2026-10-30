@@ -130,9 +130,9 @@ void limparBuffer(void) {
 int main(){
     setlocale(LC_ALL, "pt_BR.UTF-8");
 
-    int opc = 0;
+    int opc = 0, res = 0;
     float num1 = 0, num2 = 0;
-    char sair = 's';
+    char sair = 's', term;
     do{
         if(opc > 5 || opc < 1){
             printf("===============================\n\tCalculadora Simples\n===============================\n");
@@ -143,50 +143,61 @@ int main(){
             printf("4. Divisão\n");
             printf("5. Sair\n");
             printf("Opção: ");
-            scanf("%d", &opc);
+            res = scanf("%d%c", &opc, &term);
         }
 
-        switch (opc){
-            case 1:
-                opc = 0;
-                limparBuffer();
-                if (soma() == 1){
-                    opc = 5;
-                }
-            break;
-            case 2:
-                opc = 0;
-                limparBuffer();
-                if (subtracao() == 1){
-                    opc = 5;
-                }
-            break;
-            case 3:
-                opc = 0;
-                limparBuffer();
-                if (mult() == 1){
-                    opc = 5;
-                }
-            break;
-            case 4:
-                opc = 0;
-                limparBuffer();
-                if (divisao() == 1){
-                    opc = 5;
-                }
-            break;
-            case 5:
-            break;
-            default:
-                do{
-                    printf("Erro: Opção Inválida\n");
-                    while (getchar() != '\n');
-                    printf("Digite uma opção válida novamente: ");
-                    scanf("%d", &opc);
-                }while (opc > 5 || opc < 1);
-            break;
+        if(res < 2 || term != '\n'){
+            do{
+                printf("Erro: Opção Inválida\n");
+                while (getchar() != '\n');
+                printf("Digite uma opção válida novamente: ");
+                scanf("%d%c", &opc, &term);
+            }while (opc > 5 || opc < 1);
+        }
+        else{
+            switch (opc){
+                case 1:
+                    opc = 0;
+                    limparBuffer();
+                    if (soma() == 1){
+                        opc = 5;
+                    }
+                break;
+                case 2:
+                    opc = 0;
+                    limparBuffer();
+                    if (subtracao() == 1){
+                        opc = 5;
+                    }
+                break;
+                case 3:
+                    opc = 0;
+                    limparBuffer();
+                    if (mult() == 1){
+                        opc = 5;
+                    }
+                break;
+                case 4:
+                    opc = 0;
+                    limparBuffer();
+                    if (divisao() == 1){
+                        opc = 5;
+                    }
+                break;
+                case 5:
+                break;
+                default:
+                    do{
+                        printf("Erro: Opção Inválida\n");
+                        while (getchar() != '\n');
+                        printf("Digite uma opção válida novamente: ");
+                        scanf("%d", &opc);
+                    }while (opc > 5 || opc < 1);
+                break;
+            }
         }
     } while (sair != 'N' && sair != 'n' && opc != 5);
+    printf("\nObrigado por usar a calculadora! Até a próxima.");
 
     return 0;
 }
